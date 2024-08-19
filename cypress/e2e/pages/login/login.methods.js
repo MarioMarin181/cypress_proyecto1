@@ -2,13 +2,13 @@ import { LoginElements } from "./login.elements";
 
 export class LoginMethods {
     static insertUsername(username) {//método para insertar el username
-        LoginElements.textboxes.username.type(username)
+        LoginElements.textboxes.username.invoke('val',username)
         //En loginElements busca el método de textboxes, buscando el selector del textbox 
         //llamado username, además se utiliza el comando type para insertarle el username
     }
 
     static insertPassword(password){//método para insertar el username
-        LoginElements.textboxes.password.type(password)
+        LoginElements.textboxes.password.invoke('val',password)
         //En loginElements busca el método de textboxes, buscando el selector del textbox 
         //llamado password, además se utiliza el comando type para insertarle el username
     }
