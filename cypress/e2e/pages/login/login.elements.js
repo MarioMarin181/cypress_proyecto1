@@ -20,7 +20,7 @@ export class LoginElements {//clase para que guarda los elementos de la clase lo
                 return cy.contains('button', 'Log in');
             }
 
-        }
+        };
     }
 
 }

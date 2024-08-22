@@ -7,7 +7,7 @@ export class SignupElements{
             get password(){
                 return cy.get('input#sign-password')
             }
-        }
+        };
     }
 
     static get buttons(){
@@ -18,6 +18,6 @@ export class SignupElements{
             get signup(){
                 return cy.contains('button', 'Sign up')
             } 
-        }
+        };
     }
 }
