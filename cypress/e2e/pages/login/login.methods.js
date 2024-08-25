@@ -1,28 +1,27 @@
+import { Logger } from "../../util/logger";
 import { LoginElements } from "./login.elements";
 
 export class LoginMethods {
-    static insertUsername(username) {//método para insertar el username
+    static insertUsername(username) {
         LoginElements.textboxes.username.invoke('val',username)
-        //En loginElements busca el método de textboxes, buscando el selector del textbox 
-        //llamado username, además se utiliza el comando type para insertarle el username
     }
 
-    static insertPassword(password){//método para insertar el username
+    static insertPassword(password){
         LoginElements.textboxes.password.invoke('val',password)
-        //En loginElements busca el método de textboxes, buscando el selector del textbox 
-        //llamado password, además se utiliza el comando type para insertarle el username
     }
 
-    static clickOnLoginButton(){//método para dar click en el botón de login
+    static clickOnLoginButton(){
         LoginElements.buttons.login.click()
-        //En loginElements busca el método buttons, buscando el selector del botón login
-        //para darle click
     }
 
-    static login(username, password){//método grande que realiza todo el proceso de loggeado 
-                                    //con los demás métodos
+    static login(username, password){
+        Logger.subStep('Insert username')
         this.insertUsername(username)
+        
+        Logger.subStep('Insert password')
         this.insertPassword(password)
+
+        Logger.subStep('Click on Loggin Button and send the credentials')
         this.clickOnLoginButton()
     }
 
