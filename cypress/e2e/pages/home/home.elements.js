@@ -1,7 +1,7 @@
 export class HomeElements{
     static get categoriesMenu(){
         return{
-            get phone(){
+            get phones(){
                 return cy.contains('a', 'Phones')
             },
             get laptops(){
