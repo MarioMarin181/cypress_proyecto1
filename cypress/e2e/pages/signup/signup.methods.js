@@ -1,3 +1,4 @@
+import { Logger } from "../../util/logger";
 import { CommonMethods } from "../common/common.methods";
 import { SignupElements } from "./signup.elements";
 
@@ -15,8 +16,13 @@ export class SignupMethods{
     }
 
     static signup(username, password){
+        Logger.subStep('Insert username')
         this.insertUsername(username)
+
+        Logger.subStep('Insert password')
         this.insertPassword(password)
+
+        Logger.subStep('Click on Sign up button')
         this.clickOnSignupButton();
     }
 
