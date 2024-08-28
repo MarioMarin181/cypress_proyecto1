@@ -1,7 +1,8 @@
 export class Suites{
     static get testSuites(){
         return{
-             registerAndAuthentication: "Registration and Authentication",
+             register: "Registration",
+             authentication: "Authentication",
              catalogAndPurchases: "Catalog and Purchases"
         };
     }
