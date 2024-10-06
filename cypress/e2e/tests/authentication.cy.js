@@ -26,5 +26,27 @@ describe(Suites.testSuites.authentication, ()=>{
         Logger.verification('Verificate that the user is redirected to the home page')
         CommonMethods.verifySignedUser(LoginData.validCredentials.username);
 
-    })
-})
+    });
+
+    it('Invalid Log In', ()=>{
+        Logger.stepNumber(1)
+        Logger.step('Navigate to the home page')
+        CommonMethods.navigateToDemoBlaze();
+
+        Logger.stepNumber(2)
+        Logger.step('Clic on Log in Button')
+        CommonMethods.clickOnLogInOption();
+
+        Logger.stepNumber(3)
+        Logger.step('Insert a invalid username and password')
+        LoginMethods.insertUsername(LoginData.invalidCredentials.username)
+        LoginMethods.insertPassword(LoginData.invalidCredentials.password)
+
+        Logger.stepNumber(4)
+        Logger.step('Clic on Log In button')
+        LoginMethods.clickOnLoginButton()
+        Logger.verification('Verificate that the user is redirected to the home page')
+        LoginMethods.verifyWrongPasswordMessage();
+
+    });
+});
