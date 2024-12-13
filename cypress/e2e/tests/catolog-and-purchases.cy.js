@@ -1,8 +1,10 @@
+import { CartMethods } from "../pages/cart/cart.methods";
 import { CommonMethods } from "../pages/common/common.methods";
 import { HomeMethods } from "../pages/home/home.methods";
 import { LoginData } from "../pages/login/login.data";
 import { LoginMethods } from "../pages/login/login.methods";
 import { ProductDetailsData } from "../pages/product-details/product-details.data";
+import { ProductDetailsMethods } from "../pages/product-details/product-details.methods";
 import { Logger } from "../util/logger";
 import { Suites } from "../util/suites";
 
@@ -52,7 +54,20 @@ describe(Suites.testSuites.catalogAndPurchases, ()=>{
         Logger.stepNumber(4)
         Logger.step('Clic on a specific product')
         HomeMethods.clickOnProductLink(ProductDetailsData.Monitors.monitor1)
-        Logger.verify
+        Logger.verification('Verify that shows the page product details')
+        ProductDetailsMethods.verifyProductDetailsPageDisplayed();
+
+        Logger.stepNumber(5)
+        Logger.step('Click on Add to cart button')
+        ProductDetailsMethods.clickOnAddToCartButton();
+
+        Logger.stepNumber(6);
+        Logger.verification('Verify that a confirmation message is shown and the product is added to the cart')
+        ProductDetailsMethods.verifyProductAddedMessage()
+        CommonMethods.clickOnCartOption()
+        CartMethods.verifyProductAdded(ProductDetailsData.Monitors.monitor1);
+
+        
     })
 })
 
