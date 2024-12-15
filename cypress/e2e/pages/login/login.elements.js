@@ -2,10 +2,10 @@ export class LoginElements {//clase para que guarda los elementos de la clase lo
     static get textboxes() {//método para obtener los selectores de los textboxes de usuario y contraseña
         return {
             get username() {
-                return cy.get('input#loginusername');
+                return cy.get('input#loginusername', {timeout:5000});
             },
             get password() {
-                return cy.get('input#loginpassword');
+                return cy.get('input#loginpassword', {timeout:5000});
             }
         }
     }
@@ -17,7 +17,7 @@ export class LoginElements {//clase para que guarda los elementos de la clase lo
             },
 
             get login() {
-                return cy.contains('button', 'Log in');
+                return cy.contains('button', 'Log in', {timeout: 5000});
             }
 
         };

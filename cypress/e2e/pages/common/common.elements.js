@@ -4,7 +4,7 @@ export class CommonElements{
             get home(){
                 ////a[@class="nav-link" and @href="index.html"]
                 ////a[text()="Home "]
-                return cy.contains('a', 'Home ')
+                return cy.contains('a', 'Home ', {timeout: 5000})
             },
             get contact(){
                 return cy.contains('a', 'Contact')

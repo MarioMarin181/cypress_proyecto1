@@ -18,6 +18,10 @@ export class HomeMethods{
     }
 
     static verifyProductDisplayed(productName){
-        HomeElements.product(productName).should('be.visible')
+        HomeElements.product(productName).should('be.visible');
+    }
+
+    static verifyHomePageIsShown(){
+        cy.url().should('contain', 'index.html');
     }
 }

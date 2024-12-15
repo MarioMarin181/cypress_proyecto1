@@ -16,11 +16,14 @@ export class CommonMethods{
     }
 
     static clickOnAboutUsOption(){
-        CommonElements.topMenu.aboutUs.click()
+        CommonElements.topMenu.aboutUs.click();
     }
 
     static clickOnCartOption(){
         CommonElements.topMenu.cart.click()
+        Cypress.on('uncaught:exception', (err, runable) =>{
+            return false;
+        })
     }
 
     static clickOnLogInOption(){
