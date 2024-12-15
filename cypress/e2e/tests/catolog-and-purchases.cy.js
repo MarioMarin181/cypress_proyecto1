@@ -33,6 +33,9 @@ describe(Suites.testSuites.catalogAndPurchases, ()=>{
         Logger.verification('Check that shows the corresponding products list to the selected category')
         HomeMethods.verifyProductDisplayed(ProductDetailsData.Monitors.monitor1)
         HomeMethods.verifyProductDisplayed(ProductDetailsData.Monitors.monitor2);
+
+        Logger.postCondition('Log out')
+        CommonMethods.logout();
     })
 
     it('Add product to the shopping car', ()=>{
@@ -70,10 +73,12 @@ describe(Suites.testSuites.catalogAndPurchases, ()=>{
         CommonMethods.clickOnCartOption()
         CartMethods.verifyProductAdded(ProductDetailsData.Monitors.monitor1);
 
-        
+        Logger.postCondition('Empty cart and log out')
+        CartMethods.emptyCart(LoginData.validCredentials.username, LoginData.validCredentials.password)
+        CommonMethods.logout();     
     })
 
-    it.only('make a purchase', ()=>{
+    it('make a purchase', ()=>{
 
         Logger.stepNumber(1)
         Logger.step('Log in with a registered user')
@@ -122,17 +127,21 @@ describe(Suites.testSuites.catalogAndPurchases, ()=>{
 
         Logger.stepNumber(10)
         Logger.step('Complete the required fields in the shipping information page')
-        PlaceOrderMethods.insertOrderInformation(PlaceOrderData.testData)
+        PlaceOrderMethods.insertOrderInformation(PlaceOrderData.testData);
 
         Logger.stepNumber(11)
         Logger.step('Click on purchase button')
-        PlaceOrderMethods.clickOnPurchaseButton()
+        PlaceOrderMethods.clickOnPurchaseButton();
 
         Logger.stepNumber(12)
         Logger.step('Verify that the confirmation message is shown and the user is directed to the home page')
         PurchaseConfirmationMethods.verifyGreenCheckMarkDisplayed()
+        cy.wait(3000)
         PurchaseConfirmationMethods.clickOnOkButton()
         HomeMethods.verifyHomePageIsShown();
+
+        Logger.postCondition('log out')
+        CommonMethods.logout();     
     })
 })
 

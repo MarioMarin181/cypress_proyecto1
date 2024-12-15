@@ -18,13 +18,16 @@ describe(Suites.testSuites.authentication, ()=>{
         Logger.stepNumber(3)
         Logger.step('Insert a valid username and password')
         LoginMethods.insertUsername(LoginData.validCredentials.username)
-        LoginMethods.insertPassword(LoginData.validCredentials.password)
+        LoginMethods.insertPassword(LoginData.validCredentials.password);
 
         Logger.stepNumber(4)
         Logger.step('Clic on Log In button')
         LoginMethods.clickOnLoginButton()
         Logger.verification('Verificate that the user is redirected to the home page')
         CommonMethods.verifySignedUser(LoginData.validCredentials.username);
+
+        Logger.postCondition('Log out')
+        CommonMethods.logout();
 
     });
 
@@ -40,7 +43,7 @@ describe(Suites.testSuites.authentication, ()=>{
         Logger.stepNumber(3)
         Logger.step('Insert a invalid username and password')
         LoginMethods.insertUsername(LoginData.invalidCredentials.username)
-        LoginMethods.insertPassword(LoginData.invalidCredentials.password)
+        LoginMethods.insertPassword(LoginData.invalidCredentials.password);
 
         Logger.stepNumber(4)
         Logger.step('Clic on Log In button')
