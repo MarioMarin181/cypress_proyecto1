@@ -17,7 +17,9 @@
     "cypress": "^13.13.1"
   },
   "dependencies": {
-    "@mmisty/cypress-allure-adapter": "^2.6.2",
-    "@shelex/cypress-allure-plugin": "^2.40.2"
+    "@mmisty/cypress-allure-adapter": "^2.7.2",
+    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "allure-commandline": "^2.32.0",
+    "rimraf": "^6.0.1"
   }
 }
