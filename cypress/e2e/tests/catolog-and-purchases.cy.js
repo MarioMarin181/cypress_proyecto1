@@ -136,7 +136,6 @@ describe(Suites.testSuites.catalogAndPurchases, ()=>{
         Logger.stepNumber(12)
         Logger.step('Verify that the confirmation message is shown and the user is directed to the home page')
         PurchaseConfirmationMethods.verifyGreenCheckMarkDisplayed()
-        cy.wait(3000)
         PurchaseConfirmationMethods.clickOnOkButton()
         HomeMethods.verifyHomePageIsShown();
 
